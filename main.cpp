@@ -8,8 +8,10 @@ int drawLine(){
     cout<<endl;
     return 0;
 }
-void determinant(){
-
+float determinant(){
+  float a,b,c,d;
+  float determinant=a*d-b*c;
+  return determinant;
 }
 void adjoint(){
 
@@ -19,7 +21,7 @@ void inverse(){
 }
 void input(){
     drawLine();
-    int matrix[2][2];
+    float matrix[2][2];
     cout<<"Enter first element\n";
     cin>>matrix[0][0];
     cout<<"Enter second element\n";
