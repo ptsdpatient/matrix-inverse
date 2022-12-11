@@ -2,6 +2,19 @@
 #include <conio.h>
 using namespace std;
 float matrix[2][2];
+float adjmatrix[2][2];
+float invmatrix[2][2];
+bool inversed=false;
+int multiplymatrix(float invd,float adj[2][2]){
+for(int i=0;i<2;i++){ 
+        for(int j=0;j<2;j++){
+        invmatrix[i][j]=invd*adj[i][j];
+//invmatrix[0][0]=invd*adjmatrix[0][0];
+//invmatrix[0][1]=invd*adjmatrix[0][1];
+//invmatrix[1][0]=invd*adjmatrix[1][0];
+//invmatrix[1][1]=invd*adjmatrix[1][1];
+}}
+return 0;}
 int drawLine(){
     for(int l=0;l<60;l++){
         cout<<"-";
@@ -12,7 +25,7 @@ int drawLine(){
 int printmatrix(float m[2][2]){ 
  for(int i=0;i<2;i++){ 
         for(int j=0;j<2;j++){
-            cout<<m[i][j]<<"  ";    
+            cout<<endl<<m[i][j]<<"  ";    
         } 
         cout<<"\n";
 }
@@ -25,16 +38,18 @@ float determinant(){
   return determinant;
 }
 void adjoint(){
-float adjmatrix[2][2];
 adjmatrix[0][0]=d;
 adjmatrix[0][1]=-b;
 adjmatrix[1][0]=-c;
 adjmatrix[1][1]=a;
-printmatrix(adjmatrix);
+if(inversed==false) printmatrix(adjmatrix);
 }
 void inverse(){
 float InverseDeterminant=1/determinant();
-
+inversed=true;
+adjoint();
+multiplymatrix(InverseDeterminant,adjmatrix);
+printmatrix(invmatrix);
 }
 };
 
