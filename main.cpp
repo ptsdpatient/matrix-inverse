@@ -1,5 +1,4 @@
 #include <iostream>
-#include <conio.h>
 using namespace std;
 float matrix[2][2];
 float adjmatrix[2][2];
