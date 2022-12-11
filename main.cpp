@@ -1,6 +1,7 @@
 #include <iostream>
 #include <conio.h>
 using namespace std;
+float matrix[2][2];
 int drawLine(){
     for(int l=0;l<60;l++){
         cout<<"-";
@@ -9,24 +10,25 @@ int drawLine(){
     return 0;
 }
 
-int calculate(){
+struct calculate{
 float determinant(){
-  float a,b,c,d;
+  float a=matrix[0][0],b=matrix[0][1],c=matrix[1][0],d=matrix[1][1];
   float determinant=a*d-b*c;
   return determinant;
 }
 void adjoint(){
 
+
 }
 void inverse(){
 float InverseDeterminant=1/determinant();
+
 }
-return 0;
-}
+};
 
 void input(){
     drawLine();
-    float matrix[2][2];
+    
     cout<<"Enter first element\n";
     cin>>matrix[0][0];
     cout<<"Enter second element\n";
@@ -43,6 +45,8 @@ void input(){
 }
 }
 void operationInput(){
+    calculate c1; 
+    
     drawLine();
     int operation;
     cout<<"Enter the following number according to your desired operation\n"<<endl<<"[1] Determinant\n"<<endl<<"[2] Adjoint\n"<<endl<<"[3] Inverse\n";
@@ -50,13 +54,13 @@ void operationInput(){
     calculate();
     switch(operation){
         case 1 :
-               determinant();
+               cout<<c1.determinant();
                break;
         case 2 :
-               adjoint();
+               c1.adjoint();
                break;
         case 3 :
-                inverse();
+                c1.inverse();
                 break;
         default:
                 cout<<"Invalid input please enter again";
