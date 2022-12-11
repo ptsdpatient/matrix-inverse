@@ -9,16 +9,28 @@ int drawLine(){
     cout<<endl;
     return 0;
 }
-
+int printmatrix(float m[2][2]){ 
+ for(int i=0;i<2;i++){ 
+        for(int j=0;j<2;j++){
+            cout<<m[i][j]<<"  ";    
+        } 
+        cout<<"\n";
+}
+return 0;
+}
 struct calculate{
+float a=matrix[0][0],b=matrix[0][1],c=matrix[1][0],d=matrix[1][1];
 float determinant(){
-  float a=matrix[0][0],b=matrix[0][1],c=matrix[1][0],d=matrix[1][1];
   float determinant=a*d-b*c;
   return determinant;
 }
 void adjoint(){
-
-
+float adjmatrix[2][2];
+adjmatrix[0][0]=d;
+adjmatrix[0][1]=-b;
+adjmatrix[1][0]=-c;
+adjmatrix[1][1]=a;
+printmatrix(adjmatrix);
 }
 void inverse(){
 float InverseDeterminant=1/determinant();
@@ -37,12 +49,8 @@ void input(){
     cin>>matrix[1][0];
     cout<<"Enter fourth element\n";
     cin>>matrix[1][1];
-    for(int i=0;i<2;i++){ 
-        for(int j=0;j<2;j++){
-            cout<<matrix[i][j]<<"  ";    
-        } 
-        cout<<"\n";
-}
+    printmatrix(matrix);
+   
 }
 void operationInput(){
     calculate c1; 
