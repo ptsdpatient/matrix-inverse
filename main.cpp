@@ -1,23 +1,64 @@
 #include <iostream>
+#include <conio.h>
 using namespace std;
-void input(){
-    int matrix[2][2];
-    cout<<"Enter first element";
-    cin>>matrix[0][0];
-    cout<<"Enter second element";
-    cin>>matrix[0][1];
-    cout<<"Enter third element";
-    cin>>matrix[1][0];
-    cout<<"Enter fourth element";
-    cin>>matrix[1][1];
-    for(int i=0;i<2;i++) for(int j=0;j<2;j++) cout<<matrix[i][j];
+int drawLine(){
+    for(int l=0;l<60;l++){
+        cout<<"-";
+    }
+    cout<<endl;
+    return 0;
 }
-void operation(){
-    cout<<"Enter the following number according to your desired operation";
-    
+void determinant(){
+
+}
+void adjoint(){
+
+}
+void inverse(){
+
+}
+void input(){
+    drawLine();
+    int matrix[2][2];
+    cout<<"Enter first element\n";
+    cin>>matrix[0][0];
+    cout<<"Enter second element\n";
+    cin>>matrix[0][1];
+    cout<<"Enter third element\n";
+    cin>>matrix[1][0];
+    cout<<"Enter fourth element\n";
+    cin>>matrix[1][1];
+    for(int i=0;i<2;i++){ 
+        for(int j=0;j<2;j++){
+            cout<<matrix[i][j]<<"  ";    
+        } 
+        cout<<"\n";
+}
+}
+void operationInput(){
+    drawLine();
+    int operation;
+    cout<<"Enter the following number according to your desired operation\n"<<endl<<"[1] Determinant\n"<<endl<<"[2] Adjoint\n"<<endl<<"[3] Inverse\n";
+    cin>>operation;
+    switch(operation){
+        case 1 :
+               determinant();
+               break;
+        case 2 :
+               adjoint();
+               break;
+        case 3 :
+                inverse();
+                break;
+        default:
+                cout<<"Invalid input please enter again";
+                
+                operationInput();
+                break;
+    }
 }
 int main(){
     input();
-    operation();
+    operationInput();
     return 0;
 }
