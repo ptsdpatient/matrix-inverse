@@ -17,7 +17,7 @@ void adjoint(){
 
 }
 void inverse(){
-
+float InverseDeterminant=1/determinant();
 }
 void input(){
     drawLine();
