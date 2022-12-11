@@ -32,10 +32,12 @@ return 0;
 struct calculate{
 float a=matrix[0][0],b=matrix[0][1],c=matrix[1][0],d=matrix[1][1];
 int matrixprod(float matrixA[2][2],float matrixB[2][2]){
-    matrixP[0][0]=matrixA[0][0]*matrixB[0][0] + matrixA[0][1]*matrixB[1][0];
+for(int i=0;i<2;i++) for(int j=0;j<2;j++) for(int k=0;k<2;k++) matrixP[i][j]+=matrixA[i][k]*matrixB[k][j];
+    /*matrixP[0][0]=matrixA[0][0]*matrixB[0][0] + matrixA[0][1]*matrixB[1][0];
     matrixP[0][1]=matrixA[0][0]*matrixB[0][1] + matrixA[0][1]*matrixB[1][1];
     matrixP[1][0]=matrixA[1][0]*matrixB[0][0] + matrixA[1][1]*matrixB[1][0];
     matrixP[1][1]=matrixA[1][0]*matrixB[0][1] + matrixA[1][1]*matrixB[1][1];
+    */
     printmatrix(matrixP);
  return 0;
  }
