@@ -4,6 +4,8 @@ float matrix[2][2];
 float adjmatrix[2][2];
 float invmatrix[2][2];
 bool inversed=false;
+float matrixP[2][2];
+
 int multiplymatrix(float invd,float adj[2][2]){
 for(int i=0;i<2;i++){ 
         for(int j=0;j<2;j++){
@@ -29,6 +31,14 @@ return 0;
 }
 struct calculate{
 float a=matrix[0][0],b=matrix[0][1],c=matrix[1][0],d=matrix[1][1];
+int matrixprod(float matrixA[2][2],float matrixB[2][2]){
+    matrixP[0][0]=matrixA[0][0]*matrixB[0][0] + matrixA[0][1]*matrixB[1][0];
+    matrixP[0][1]=matrixA[0][0]*matrixB[0][1] + matrixA[0][1]*matrixB[1][1];
+    matrixP[1][0]=matrixA[1][0]*matrixB[0][0] + matrixA[1][1]*matrixB[1][0];
+    matrixP[1][1]=matrixA[1][0]*matrixB[0][1] + matrixA[1][1]*matrixB[1][1];
+    printmatrix(matrixP);
+ return 0;
+ }
 float determinant(){
   float determinant=a*d-b*c;
   return determinant;
@@ -68,7 +78,7 @@ void operationInput(){
     
     drawLine();
     int operation;
-    cout<<"Enter the following number according to your desired operation\n"<<endl<<"[1] Determinant\n"<<endl<<"[2] Adjoint\n"<<endl<<"[3] Inverse\n";
+    cout<<"Enter the following number according to your desired operation\n"<<"[1] Determinant\n"<<"[2] Adjoint\n"<<"[3] Inverse\n"<<"[4] Square\n";
     drawLine();
     cin>>operation;
     calculate();
@@ -82,6 +92,9 @@ void operationInput(){
         case 3 :
                 c1.inverse();
                 break;
+        case 4 : 
+                c1.matrixprod(matrix,matrix);
+       
         default:
                 cout<<"Invalid input please enter again";
                 operationInput();
