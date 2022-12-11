@@ -9,10 +9,7 @@ int multiplymatrix(float invd,float adj[2][2]){
 for(int i=0;i<2;i++){ 
         for(int j=0;j<2;j++){
         invmatrix[i][j]=invd*adj[i][j];
-//invmatrix[0][0]=invd*adjmatrix[0][0];
-//invmatrix[0][1]=invd*adjmatrix[0][1];
-//invmatrix[1][0]=invd*adjmatrix[1][0];
-//invmatrix[1][1]=invd*adjmatrix[1][1];
+
 }}
 return 0;}
 int drawLine(){
@@ -25,9 +22,9 @@ int drawLine(){
 int printmatrix(float m[2][2]){ 
  for(int i=0;i<2;i++){ 
         for(int j=0;j<2;j++){
-            cout<<endl<<m[i][j]<<"  ";    
+            cout<<m[i][j]<<" ";    
         } 
-        cout<<"\n";
+        cout<<endl;
 }
 return 0;
 }
