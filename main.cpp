@@ -8,6 +8,8 @@ int drawLine(){
     cout<<endl;
     return 0;
 }
+
+int calculate(){
 float determinant(){
   float a,b,c,d;
   float determinant=a*d-b*c;
@@ -19,6 +21,9 @@ void adjoint(){
 void inverse(){
 float InverseDeterminant=1/determinant();
 }
+return 0;
+}
+
 void input(){
     drawLine();
     float matrix[2][2];
@@ -42,6 +47,7 @@ void operationInput(){
     int operation;
     cout<<"Enter the following number according to your desired operation\n"<<endl<<"[1] Determinant\n"<<endl<<"[2] Adjoint\n"<<endl<<"[3] Inverse\n";
     cin>>operation;
+    calculate();
     switch(operation){
         case 1 :
                determinant();
@@ -54,7 +60,6 @@ void operationInput(){
                 break;
         default:
                 cout<<"Invalid input please enter again";
-                
                 operationInput();
                 break;
     }
