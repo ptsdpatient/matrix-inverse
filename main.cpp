@@ -22,6 +22,7 @@ int drawLine(){
     return 0;
 }
 int printmatrix(float m[2][2]){ 
+    drawLine();
  for(int i=0;i<2;i++){ 
         for(int j=0;j<2;j++){
             cout<<m[i][j]<<" ";    
@@ -104,12 +105,11 @@ void operationInput(){
        
         default:
                 cout<<"Invalid input please enter again";
-                operationInput();
+                //operationInput();
                 break;
     }
 }
 int main(){
-   
     operationInput();
     return 0;
 }
