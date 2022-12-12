@@ -3,6 +3,7 @@ using namespace std;
 float matrix[2][2];
 float adjmatrix[2][2];
 float invmatrix[2][2];
+float matrix1[2][2];
 bool inversed=false;
 float matrixP[2][2];
 
@@ -32,12 +33,10 @@ return 0;
 struct calculate{
 float a=matrix[0][0],b=matrix[0][1],c=matrix[1][0],d=matrix[1][1];
 int matrixprod(float matrixA[2][2],float matrixB[2][2]){
-for(int i=0;i<2;i++) for(int j=0;j<2;j++) for(int k=0;k<2;k++) matrixP[i][j]+=matrixA[i][k]*matrixB[k][j];
-    /*matrixP[0][0]=matrixA[0][0]*matrixB[0][0] + matrixA[0][1]*matrixB[1][0];
+    matrixP[0][0]=matrixA[0][0]*matrixB[0][0] + matrixA[0][1]*matrixB[1][0];
     matrixP[0][1]=matrixA[0][0]*matrixB[0][1] + matrixA[0][1]*matrixB[1][1];
     matrixP[1][0]=matrixA[1][0]*matrixB[0][0] + matrixA[1][1]*matrixB[1][0];
     matrixP[1][1]=matrixA[1][0]*matrixB[0][1] + matrixA[1][1]*matrixB[1][1];
-    */
     printmatrix(matrixP);
  return 0;
  }
@@ -59,12 +58,12 @@ adjoint();
 multiplymatrix(InverseDeterminant,adjmatrix);
 printmatrix(invmatrix);
 }
-};
+void input(float inpmatrix[2][2]){
 
-void input(){
     drawLine();
-    
-    cout<<"[1] Enter first element : ";
+    int k =1;
+    for(int i=0;i<2;i++) for(int j=0;j<2;j++){ cout<<"[%d] Enter %d element : ",&k; cin>>inpmatrix[i][j];}
+    /*cout<<"[1] Enter first element : ";
     cin>>matrix[0][0];
     cout<<"[2] Enter second element : ";
     cin>>matrix[0][1];
@@ -72,15 +71,20 @@ void input(){
     cin>>matrix[1][0];
     cout<<"[4] Enter fourth element : ";
     cin>>matrix[1][1];
-    printmatrix(matrix);
+*/    printmatrix(inpmatrix);
    
 }
+};
+
+
+
+
 void operationInput(){
     calculate c1; 
-    
+     c1.input(matrix);
     drawLine();
     int operation;
-    cout<<"Enter the following number according to your desired operation\n"<<"[1] Determinant\n"<<"[2] Adjoint\n"<<"[3] Inverse\n"<<"[4] Square\n";
+    cout<<"Enter the following number according to your desired operation\n"<<"[1] Determinant\n"<<"[2] Adjoint\n"<<"[3] Inverse\n"<<"[4] Product\n";
     drawLine();
     cin>>operation;
     calculate();
@@ -95,7 +99,8 @@ void operationInput(){
                 c1.inverse();
                 break;
         case 4 : 
-                c1.matrixprod(matrix,matrix);
+                c1.input(matrix1);
+                c1.matrixprod(matrix,matrix1);
        
         default:
                 cout<<"Invalid input please enter again";
@@ -104,7 +109,7 @@ void operationInput(){
     }
 }
 int main(){
-    input();
+   
     operationInput();
     return 0;
 }
