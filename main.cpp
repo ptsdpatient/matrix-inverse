@@ -62,7 +62,7 @@ void input(float inpmatrix[2][2]){
 
     drawLine();
     int k =1;
-    for(int i=0;i<2;i++) for(int j=0;j<2;j++){ cout<<"[%d] Enter %d element : ",&k; cin>>inpmatrix[i][j];}
+    for(int i=0;i<2;i++) for(int j=0;j<2;j++){ cout<<"["<<k<<"] Enter "<<k<<" element : "; cin>>inpmatrix[i][j];k++;}
     /*cout<<"[1] Enter first element : ";
     cin>>matrix[0][0];
     cout<<"[2] Enter second element : ";
